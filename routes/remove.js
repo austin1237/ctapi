@@ -6,14 +6,15 @@ var Users = require('../models/users').Users;
 
 exports.index = function (req, res) {
 
-    var userId = req.body.userId;
-    console.log('userId is ' + req.body.userId)
-    Users.remove({ userId: userId } , function (err) {
+    var _id = req.body._id;
+    console.log('id is ' + req.body.userId)
+    Users.remove({ _id: _id} , function (err) {
         if (err){ // ...
             console.log('error occured');
+            res.send(500);
 
         }
-        console.log('Delete of ' + req.body + 'was successful');
+        console.log('Delete of ' + _id + 'was successful');
     });
 
     res.send(200);
