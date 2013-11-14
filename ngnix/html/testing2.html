@@ -1,0 +1,44 @@
+<!doctype html>
+<html ng-app>
+  <head>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+    <script src="script.js"></script>
+  </head>
+  <body>
+  <div ng-app = 'myApp'>
+    <div ng-controller="Controller">
+        Collection Name: <select ng-model="collections"> </select>
+      <form novalidate class="simple-form">
+        userId: <input type="text" ng-model="user.userId" /><br />
+        Name: <input type="text" ng-model="user.userName" /><br />
+        password: <input type="text" ng-model="user.password" /><br />
+        <button ng-click="insertVaules()">Write</button>
+        <button ng-click="showVaules()">Read</button>
+        <button ng-click="deleteVaules()">Delete</button>
+        <button ng-click="updateVaules()">Update</button>
+      </form>
+
+        <div ng-repeat="user in users">
+            {{user.userId}} {{user.userName}} {{user.password}}
+        </div>
+
+         <table>
+             <thead>
+            <th ng:repeat="header in headers">{{header}}</th>
+            </thead>
+                <tbody ng:repeat="user in users">
+
+         <td ng:repeat="(key, value) in user">{{value}}</td>
+         <td><button ng:click="editItem(user)">EDIT</button></td>
+         <td><button ng:click="removeItem(user)">DELETE</button></td>
+         </tbody>
+             <td><button ng:click="editItem(user)">ADD</button></td>
+        </table>
+
+
+      <pre>form = {{user | json}}</pre>
+    </div>
+  </div>
+
+  </body>
+</html>
