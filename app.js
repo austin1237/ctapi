@@ -13,7 +13,7 @@ var path = require('path');
 
 //controllers
 var users = require('./routes/users');
-var test2 = require('./routes/test2');
+var write = require('./routes/write');
 var remove = require('./routes/remove');
 var update = require('./routes/update');
 var mongo = require('./routes/mongo');
@@ -52,14 +52,18 @@ app.all('/*', function (req, res, next) {
 //make this restful
 app.get('/', routes.index);
 
-app.get(url + '/users', users.index);
 
 //read
-app.post(url + '/test2', test2.index);
+app.get(url + '/users', users.index);
 
-app.post(url + '/delete', remove.index);
+//write
+app.post(url + '/users/', write.index);
 
-app.post(url + '/update', update.index);
+//Delete
+app.delete(url + '/users/:id', remove.index);
+
+//update
+app.put(url + '/users/:id', update.index);
 
 
 app.get(url + '/mongo' , mongo.index);

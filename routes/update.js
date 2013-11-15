@@ -5,7 +5,7 @@ var Users = require('../models/users').Users;
 
 exports.index = function (req, res) {
     //var _id = req._id;
-    var query = {_id: req.body._id};
+    var query = {_id: req.params.id } //id from url};
     console.log(query);
     console.log(req.body.userId + ' ' + ' ' + req.body.userName + ' ' + req.body.password);
     console.log('the javascript object is ' + req.body.toString());

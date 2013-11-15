@@ -6,8 +6,8 @@ var Users = require('../models/users').Users;
 
 exports.index = function (req, res) {
 
-    var _id = req.body._id;
-    console.log('id is ' + req.body.userId)
+    var _id = req.params.id;//id from url
+    console.log('id is ' + _id)
     Users.remove({ _id: _id} , function (err) {
         if (err){ // ...
             console.log('error occured');
