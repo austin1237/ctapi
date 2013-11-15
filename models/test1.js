@@ -1,18 +1,18 @@
 var mongoose = require('mongoose');
 if (mongoose.connection.readyState == 0){//checks if already connected to the database
-	var Config = require('../configs/config');
-	var config = new Config();
-	config = config.getConfig().db.dev;
-	mongoose.connect(config);
+    var Config = require('../configs/config');
+    var config = new Config();
+    config = config.getConfig().db.dev;
+    mongoose.connect(config);
 }
 
 var Schema = mongoose.Schema;
 
 var Test1Schema = new Schema({
-  title: 'String', 
-  description: 'String', 
-  createdDate: 'Date', 
-  
+    title: 'String',
+    description: 'String',
+    createdDate: 'Date',
+
 });
 
 var Test1 = mongoose.model('scenarios', Test1Schema);

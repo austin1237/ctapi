@@ -5,6 +5,6 @@
 var collection = require('../models/mongo').collection;
 
 exports.index = function(req, res){
-   console.log(collection);
+    console.log(collection);
     res.send(200, JSON.stringify(Collection));
 };

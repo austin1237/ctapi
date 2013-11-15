@@ -35,16 +35,16 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // development only
 if ('development' == app.get('env')) {
-  app.use(express.errorHandler());
-  url = '';
+    app.use(express.errorHandler());
+    url = '';
 }
 
 // CORS header securiy
 app.all('/*', function (req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*");
-   res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
     res.header("Access-Control-Allow-Headers", "X-Requested-With, Content-Type");
-  next();
+    next();
 });
 
 
@@ -70,6 +70,6 @@ app.get(url + '/mongo' , mongo.index);
 
 //creats the node server
 http.createServer(app).listen(app.get('port'), function(){
-  console.log('Express server listening on port ' + app.get('port'));
+    console.log('Express server listening on port ' + app.get('port'));
 }); 
 
