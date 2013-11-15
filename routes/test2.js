@@ -7,7 +7,7 @@ exports.index = function (req, res) {
    user.save(function (err) {
         if (err){ // ...
             console.log('error occured');
-
+            console.log(err);
         }
        console.log('insert of ' + req.body + 'was successful');
    });

@@ -10,7 +10,8 @@ var http = require('http');
 var path = require('path');
 
 //supervisor -s -. node app
-// Users controller
+
+//controllers
 var users = require('./routes/users');
 var test2 = require('./routes/test2');
 var remove = require('./routes/remove');
@@ -47,11 +48,13 @@ app.all('/*', function (req, res, next) {
 });
 
 
+
+//make this restful
 app.get('/', routes.index);
 
-//users endpoint
 app.get(url + '/users', users.index);
 
+//read
 app.post(url + '/test2', test2.index);
 
 app.post(url + '/delete', remove.index);
@@ -59,27 +62,13 @@ app.post(url + '/delete', remove.index);
 app.post(url + '/update', update.index);
 
 
-app.get(url + '/mongo' , mongo.index)
-
-
-/*    function(req, res) {
-    var name = req.body.name;
-    var userId = req.body.userId;
-    var password = req.body.password;
-
-    console.log(req.body);
-    res.send(200);
-});*/
-
-
-// Scenario endpoint
-//app.get(url + '/scenarios', scenario.index);
-
-//test1 endpoint
-//app.get(url + '/test1', test1.index);
+app.get(url + '/mongo' , mongo.index);
 
 
 
+
+
+//creats the node server
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
 }); 

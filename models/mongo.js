@@ -15,10 +15,13 @@ console.log('mongoose readyState is ' + mongoose.connection.readyState);
 var collection;
 
 mongoose.connection.on('open', function (ref) {
-    console.log('Connected to mongo server.');
+    console.log('about to get names.');
+    mongoose.connection.db.collectionNames(function (err, names) {//gets the names of the collections in the database
+        collection = names
+        console.log(names);
+    });
 });
 
-mongoose.connection.db.collectionNames(function (err, names) {
-    console.log(names); // [{ name: 'dbname.myCollection' }]
-    module.exports.Collection = names;
-});
+module.exports.collection = collection;
+
+

@@ -25,4 +25,4 @@ var Users = mongoose.model('users', UserSchema);
 
 console.log('users model created');
 console.log('mongoose readyState is ' + mongoose.connection.readyState);
-module.exports.Users = Users;
+module.exports.Users = Users
