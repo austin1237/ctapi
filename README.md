@@ -4,7 +4,7 @@ ctapi
 test api
 A backend interface to handle basic CRUD operations with a collection called users.
 
-The line in routes/users should be changed to match whatever instance of a mongodb version your using.
+The paramter for mongoose.connect in routes/users should be changed to match whatever connection string your mongodb needs.
 
 This server is listening on port:3000
 
