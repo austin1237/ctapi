@@ -54,16 +54,16 @@ app.get('/', routes.index);
 
 
 //read
-app.get(url + '/users', users.index);
+app.get(url + '/users', users.read);
 
 //write
-app.post(url + '/users/', write.index);
+app.post(url + '/users/', users.write);
 
 //Delete
-app.delete(url + '/users/:id', remove.index);
+app.delete(url + '/users/:id', users.delete);
 
 //update
-app.put(url + '/users/:id', update.index);
+app.put(url + '/users/:id', users.update);
 
 
 app.get(url + '/mongo' , mongo.index);
@@ -72,7 +72,7 @@ app.get(url + '/mongo' , mongo.index);
 
 
 
-//creats the node server
+//creates the node/express server
 http.createServer(app).listen(app.get('port'), function(){
     console.log('Express server listening on port ' + app.get('port'));
 }); 

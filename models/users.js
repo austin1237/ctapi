@@ -4,6 +4,9 @@ console.log("creating connection to the database");
 var Config = require('../configs/config');
 var config = new Config();
 config = config.getConfig().db.dev;
+
+
+//The connection string needs to be changed to either a mongohq string or your own local mongodb connection string
 mongoose.connect("mongodb://austin:password1@paulo.mongohq.com:10023/test1");
 console.log('mongoose readyState is ' + mongoose.connection.readyState);
 
